@@ -39,6 +39,207 @@ h1, h2, h3, h4 {
     line-height: 1.2;
 }
 
+/* --- UPDATED --- Added word-break for better Korean typography */
+p {
+    margin-bottom: 1rem;
+    word-break: keep-all; /* Prevents awkward word breaks in Korean */
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Utility & Reusable Classes --- */
+.content-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.dark-bg {
+    background-color: var(--dark-bg-color);
+    color: var(--light-text-color);
+}
+
+.dark-bg h2, .dark-bg h3, .dark-bg h4 {
+    color: var(--background-color);
+}
+
+.dark-bg .section-subtitle {
+    color: #ccc;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.cta-button-small {
+    display: inline-block;
+    background-color: #fff;
+    color: var(--secondary-color);
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button-small:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: rgba(253, 251, 245, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid #eee;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.nav-logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 600px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero_bc.png') no-repeat center center/cover;
+}
+
+/* --- UPDATED --- Implemented Fluid Typography */
+.hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 4rem); /* Will scale smoothly from 2.8rem to 4rem */
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Also scales smoothly */
+    margin-bottom: 2rem;/* --- Google Fonts --- */
+/* font-family: 'Noto Sans KR', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
+
+/* --- CSS Variables (Easy to Customize) --- */
+:root {
+    --primary-color: #362222; /* Rich coffee brown */
+    --secondary-color: #A0522D; /* Lighter sienna brown */
+    --background-color: #FDFBF5; /* Creamy white background */
+    --dark-bg-color: #1a1a1a; /* Dark charcoal for contrast sections */
+    --text-color: #333333;
+    --light-text-color: #f1f1f1;
+    --accent-color: #D4AF37; /* Gold accent */
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Noto Sans KR', sans-serif;
+}
+
+/* --- General & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
 p {
     margin-bottom: 1rem;
     word-break: keep-all;
@@ -423,7 +624,7 @@ img {
     }
     
     .nav-actions {
-        display: none; /* Hide top nav actions, they can be in footer or hero */
+        display: none; 
     }
 
     .hero-content h1 {
@@ -439,6 +640,272 @@ img {
 
     .footer-content {
         grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-logo, .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+}
+
+/* --- About Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.about-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
+}
+
+/* --- Philosophy Section --- */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.philosophy-image img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.flavor-notes {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.flavor-notes span {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.flavor-notes i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.philosophy-text h4 {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+}
+
+/* --- Products Section --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 15px 0 10px 0;
+}
+
+.product-card p {
+    padding: 0 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.product-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* --- Wholesale Section --- */
+.wholesale-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wholesale-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.wholesale-content .cta-button {
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.wholesale-content .cta-button:hover {
+    background-color: #fff;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--primary-color);
+    color: #ccc;
+    padding: 60px 5%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #4a3333;
+}
+
+.footer-logo img {
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.footer-content h3 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-contact a, .footer-social a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover, .footer-social a:hover {
+    color: var(--accent-color);
+}
+
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .foo
+.footer-social a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.9rem;
+}
+
+
+/* --- Responsive Design --- */
+
+/* --- Intermediate breakpoint for tablets */
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-image {
+        margin-top: 40px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* Two columns for footer */
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Reduced padding on small screens */
+    .content-section {
+        padding: 60px 5%;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--background-color);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-item {
+        margin: 20px 0;
+    }
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-actions {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
         text-align: center;
     }
     .footer-logo, .footer-contact {
